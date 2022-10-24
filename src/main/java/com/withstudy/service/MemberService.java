@@ -22,16 +22,24 @@ public class MemberService {
     public Long memberJoin(Member member) {
         validateDuplicateMember(member);    // 중복 회원을 검증한다.
         memberRepository.saveMember(member);
-        return member.getId();
+
+        //return member.getId();
+        return null;
     }
 
+    // 중복 검증
     private void validateDuplicateMember(Member member) {
-        memberRepository.findByName(member.getName())
+        memberRepository.findByName(member.getMemberName())
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 회원입니다");
                 });
     }
 
+    // 로그인
+    /*
+    public int memberLogin(Member member) {return memberRepository.saveMember(member);}
+
+     */
     // 전체 회원 조회
     public List<Member> findMembers() {
         return memberRepository.findAll();

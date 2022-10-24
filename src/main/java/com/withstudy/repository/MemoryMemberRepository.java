@@ -15,8 +15,8 @@ public class MemoryMemberRepository implements MemberRepository {
 
     @Override
     public Member saveMember(Member member) {
-        member.setId(++sequence);
-        store.put(member.getId(), member);
+        member.setMemberID(++sequence);
+        store.put(member.getMemberID(), member);
         return member;
     }
 
@@ -29,7 +29,7 @@ public class MemoryMemberRepository implements MemberRepository {
     public Optional<Member> findByName(String name) {
         return store.values().stream()
                 // getNmae()이 파라미터로 넘어온 name과 같은 경우에 필터링
-                .filter(member -> member.getName().equals(name))
+                .filter(member -> member.getMemberName().equals(name))
                 .findAny();
     }
 
@@ -38,6 +38,12 @@ public class MemoryMemberRepository implements MemberRepository {
         // store.values()는 Member를 반환한다.
         return new ArrayList<>(store.values());
     }
+
+    @Override
+    public Member joinMember(Member member) {
+        return null;
+    }
+
 
     public void clearStore(){
         store.clear();
