@@ -30,14 +30,14 @@ public class Member {
     @Column(nullable = false, name = "memberID", unique = true)
     private String memberID;
 
-    @Column(name = "memberPwd")
+    @Column(nullable = false, name = "memberPwd")
     private String memberPwd;
 
-    @Column(name = "memberName")
+    @Column(nullable = false, name = "memberName")
     private String memberName;
 
-    @Column(name = "memberPhone")
-    private String memberPhone;
+    @Column(nullable = false, name = "memberEmail", unique = true)
+    private String memberEmail;
 
     @Column(name = "memberRole")
     private String role;
