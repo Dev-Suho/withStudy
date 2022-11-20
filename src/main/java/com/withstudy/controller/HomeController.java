@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class HomeController {
 
-    @GetMapping("/")
+    @GetMapping(value = {"/withStudy", "/"})
     public String viewHome() {
         return "withStudy";
     }
@@ -31,5 +31,13 @@ public class HomeController {
     @GetMapping("/signUp")
     public String singUpView() {
         return "signUpPage";
+    }
+
+    @GetMapping("/signUpComplete")
+    public String signUpCompleteView() { return "signUpComplete"; }
+
+    @GetMapping("/studyBoard")
+    public String studyBoardView() {
+        return "studyBoard";
     }
 }

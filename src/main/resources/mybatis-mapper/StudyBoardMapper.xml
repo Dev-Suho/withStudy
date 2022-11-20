@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="studyBoard">
+
+    <insert id = "studyBoardReg" parameterType="com.withstudy.domain.StudyBoardDTO" >
+        insert into STUDYBOARD
+        values (sb_num_seq.nextval, #{member_name, jdbcType = VARCHAR}, #{sb_title, jdbcType = VARCHAR}, #{sb_tag, jdbcType = VARCHAR},
+                #{sb_content, jdbcType = VARCHAR}, #{sb_start_time, jdbcType = VARCHAR}, #{sb_deadLine, jdbcType = VARCHAR}, #{sb_contact, jdbcType = VARCHAR}, sysdate)
+</insert>
+
+</mapper>
