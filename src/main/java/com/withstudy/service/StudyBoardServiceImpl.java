@@ -5,6 +5,8 @@ import com.withstudy.repository.StudyBoardDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudyBoardServiceImpl implements StudyBoardService{
 
@@ -18,5 +20,10 @@ public class StudyBoardServiceImpl implements StudyBoardService{
     @Override
     public void studyBoardReg(StudyBoardDTO studyBoardDTO) throws Exception {
         studyBoardDAO.studyBoardReg(studyBoardDTO);
+    }
+
+    @Override
+    public List<StudyBoardDTO> studyBoardList() throws Exception {
+        return studyBoardDAO.studyBoardList();
     }
 }

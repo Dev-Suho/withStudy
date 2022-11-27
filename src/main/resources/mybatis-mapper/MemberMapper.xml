@@ -3,16 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="member">
+<mapper namespace="com.withstudy.mapper.MemberMapper">
 
-    <insert id = "signUp" parameterType="MemberDTO" >
+    <insert id = "signUp" parameterType="com.withstudy.domain.MemberDTO">
         insert into MEMBER
-        values (#{member_email, jdbcType = VARCHAR}, #{member_pwd, jdbcType = VARCHAR},  #{member_name, jdbcType = VARCHAR }, 'General', sysdate)
+        values (#{member_email, jdbcType = VARCHAR}, #{member_pwd, jdbcType = VARCHAR},  #{member_name, jdbcType = VARCHAR}, 'General', sysdate)
     </insert>
 
-    <select id = "loginCheck"  resultType="com.withstudy.domain.MemberDTO">
-        select * FROM MEMBER
-        where member_name = #{member_name, jdbcType = VARCHAR}
-        and member_pwd = #{member_pwd, jdbcType = VARCHAR}
+    <select id = "loginCheck" resultType="com.withstudy.domain.MemberDTO">
+        SELECT * FROM MEMBER
+        WHERE MEMBER_NAME = #{member_name, jdbcType = VARCHAR}
+        AND MEMBER_PWD = #{member_pwd, jdbcType = VARCHAR}
     </select>
+
 </mapper>

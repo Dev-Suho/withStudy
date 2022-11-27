@@ -13,11 +13,6 @@ public class HomeController {
         return "withStudy";
     }
 
-    @GetMapping("/studyList")
-    public String viewPost() {
-        return "studyListPage";
-    }
-
     @GetMapping("/login")
     public String login() {
         return "loginPage";
@@ -40,4 +35,5 @@ public class HomeController {
     public String studyBoardView() {
         return "studyBoard";
     }
+
 }

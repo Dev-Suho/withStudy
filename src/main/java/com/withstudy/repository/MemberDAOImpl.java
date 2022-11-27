@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO{
+
     private final SqlSession sqlSession;
 
     @Autowired
@@ -21,24 +22,11 @@ public class MemberDAOImpl implements MemberDAO{
     }
 
     @Override
-    public MemberDTO login(MemberDTO memberDTO) {
-
-        /*
+    public MemberDTO login(MemberDTO memberDTO) throws Exception {
         MemberDTO member = null;
-
         System.out.println("DAO : " + memberDTO);
-        try {
-            member = sqlSession.selectOne(NAMESPACE + "loginCheck", memberDTO);
-            System.out.println(member);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        member =  sqlSession.selectOne(NAMESPACE + "loginCheck", memberDTO);
+        System.out.println("dao : " + member);
         return member;
-
-         */
-        MemberDTO memberDTO1;
-        memberDTO1 =  sqlSession.selectOne(NAMESPACE + "loginCheck", memberDTO);
-        System.out.println("dao"+memberDTO1);
-        return sqlSession.selectOne(NAMESPACE + "loginCheck", memberDTO);
     }
 }

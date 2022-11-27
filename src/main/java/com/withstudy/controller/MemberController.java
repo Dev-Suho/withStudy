@@ -44,7 +44,7 @@ public class MemberController {
             session.setAttribute("member", member);
             System.out.println("로그인 성공");
 
-            return "redirect:withStudy";
+            return "redirect:/";
         } else {
             System.out.println("로그인 실패");
             return "redirect:login";

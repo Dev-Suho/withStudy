@@ -9,6 +9,10 @@
         insert into STUDYBOARD
         values (sb_num_seq.nextval, #{member_name, jdbcType = VARCHAR}, #{sb_title, jdbcType = VARCHAR}, #{sb_tag, jdbcType = VARCHAR},
                 #{sb_content, jdbcType = VARCHAR}, #{sb_start_time, jdbcType = VARCHAR}, #{sb_deadLine, jdbcType = VARCHAR}, #{sb_contact, jdbcType = VARCHAR}, sysdate)
-</insert>
+    </insert>
+
+    <select id="studyBoardList" resultType="com.withstudy.domain.StudyBoardDTO">
+        select * from STUDYBOARD
+    </select>
 
 </mapper>

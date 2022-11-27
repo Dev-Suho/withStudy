@@ -1,14 +1,11 @@
 package com.withstudy.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Date;
 
-@Getter
-@Setter
-@ToString
+@Data
+@NoArgsConstructor
 public class StudyBoardDTO {
     private int sb_num;
     private String member_name;

@@ -25,6 +25,7 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public MemberDTO login(MemberDTO memberDTO) throws Exception {
+        System.out.println("login Service : " + memberDTO);
         return memberDAO.login(memberDTO);
     }
 }

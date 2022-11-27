@@ -12,7 +12,7 @@ public class MemberDTO {
     private String member_pwd;
     private String member_email;
     private String member_role;
-    private Date member_register_datetime;
+    private Date member_register_Datetime;
 
     public String getMember_name() {
         return member_name;
@@ -46,12 +46,12 @@ public class MemberDTO {
         this.member_role = member_role;
     }
 
-    public Date getMember_register_datetime() {
-        return member_register_datetime;
+    public Date getMember_register_Datetime() {
+        return member_register_Datetime;
     }
 
-    public void setMember_register_datetime(Date member_register_datetime) {
-        this.member_register_datetime = member_register_datetime;
+    public void setMember_register_Datetime(Date member_register_Datetime) {
+        this.member_register_Datetime = member_register_Datetime;
     }
 
     @Override
@@ -61,7 +61,7 @@ public class MemberDTO {
                 ", member_pwd='" + member_pwd + '\'' +
                 ", member_email='" + member_email + '\'' +
                 ", member_role='" + member_role + '\'' +
-                ", member_register_datetime=" + member_register_datetime +
+                ", member_register_Datetime=" + member_register_Datetime +
                 '}';
     }
 }

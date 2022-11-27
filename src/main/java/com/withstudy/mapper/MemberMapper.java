@@ -1,11 +1,11 @@
 package com.withstudy.mapper;
 
+import com.withstudy.domain.MemberDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
-public interface TimeMapper {
+public interface MemberMapper {
 
-    @Select("select sysdate from dual")
-    public String getTime();
+    public MemberDTO loginCheck();
 }
