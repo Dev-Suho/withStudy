@@ -18,6 +18,8 @@ public class StudyBoardDAOImpl implements StudyBoardDAO{
 
     @Override
     public void studyBoardReg(StudyBoardDTO studyBoardDTO) throws Exception {
+        System.out.println("DAO Board : " + studyBoardDTO.toString());
+
         sqlSession.insert(NAMESPACE + "studyBoardReg",studyBoardDTO);
     }
 

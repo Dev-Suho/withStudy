@@ -5,7 +5,7 @@ import com.withstudy.domain.StudyBoardDTO;
 import java.util.List;
 
 public interface StudyBoardDAO {
-    String NAMESPACE = "studyBoard.";
+    String NAMESPACE = "com.withstudy.mapper.BoardMapper.";
 
     public void studyBoardReg(StudyBoardDTO studyBoardDTO) throws Exception;
 

@@ -40,14 +40,13 @@ public class MemberController {
 
         System.out.println("member : " + member);
 
-        if (member != null){
-            session.setAttribute("member", member);
-            System.out.println("로그인 성공");
-
-            return "redirect:/";
-        } else {
+        if (member == null){
             System.out.println("로그인 실패");
             return "redirect:login";
+        } else {
+            session.setAttribute("member", member);
+            System.out.println("로그인 성공");
+            return "redirect:withStudy";
         }
     }
 }

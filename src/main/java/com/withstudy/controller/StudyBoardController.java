@@ -4,8 +4,10 @@ import com.withstudy.domain.StudyBoardDTO;
 import com.withstudy.service.StudyBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -21,18 +23,22 @@ public class StudyBoardController {
 
     @PostMapping(value = "/studyBoardReg")
     public String studyBoardReg(StudyBoardDTO studyBoardDTO) throws Exception{
+        System.out.println("Controller Board : " + studyBoardDTO.toString());
         studyBoardService.studyBoardReg(studyBoardDTO);
 
         return "studyListPage";
     }
 
     @GetMapping("/studyList")
-    public String studyListView() throws Exception{
+    public ModelAndView studyListView() throws Exception{
         List<StudyBoardDTO> studyBoardDTOS = null;
         studyBoardDTOS = studyBoardService.studyBoardList();
 
-        System.out.println("studyList : " + studyBoardDTOS);
+        ModelAndView mav = new ModelAndView("studyListPage");
+        mav.addObject("boardList", studyBoardDTOS);
 
-        return "studyListPage";
+        System.out.println("studyList : " + mav);
+
+        return mav;
     }
 }

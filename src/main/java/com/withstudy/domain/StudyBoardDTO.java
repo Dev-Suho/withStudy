@@ -4,8 +4,8 @@ import lombok.*;
 
 import java.util.Date;
 
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
 public class StudyBoardDTO {
     private int sb_num;
     private String member_name;
@@ -16,4 +16,19 @@ public class StudyBoardDTO {
     private String sb_deadLine;
     private String sb_contact;
     private Date sb_register_datetime;
+
+    @Override
+    public String toString() {
+        return "StudyBoardDTO{" +
+                "sb_num=" + sb_num +
+                ", member_name='" + member_name + '\'' +
+                ", sb_title='" + sb_title + '\'' +
+                ", sb_tag='" + sb_tag + '\'' +
+                ", sb_content='" + sb_content + '\'' +
+                ", sb_start_time='" + sb_start_time + '\'' +
+                ", sb_deadLine='" + sb_deadLine + '\'' +
+                ", sb_contact='" + sb_contact + '\'' +
+                ", sb_register_datetime=" + sb_register_datetime +
+                '}';
+    }
 }

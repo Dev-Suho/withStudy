@@ -19,6 +19,7 @@ public class StudyBoardServiceImpl implements StudyBoardService{
 
     @Override
     public void studyBoardReg(StudyBoardDTO studyBoardDTO) throws Exception {
+        System.out.println("Service Board : " + studyBoardDTO.toString());
         studyBoardDAO.studyBoardReg(studyBoardDTO);
     }
 
