@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -52,6 +52,7 @@
         <div class="container contact">
             <div class="row">
                 <form action="/studyBoardReg" method="post">
+                    <input type="hidden" name = "member_name" th:value="${session.member.member_name}">
                 <div class="col-md-9">
                     <div class="contact-form">
                         <div class="form-group">

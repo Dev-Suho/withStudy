@@ -61,131 +61,28 @@
                         </div>
                     </div>
                     <div class="row gx-5">
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <div class="card-body p-5">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">시작 예정일 : </div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">제목</h5></a>
-                                    <p class="card-text mb-0">자바스크립트 기초 스터디 모집합니다</p>
-                                </div>
-                                <div class="card-footer p-5 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold">Kelly Rowan</div>
-                                                <div class="text-muted">March 12, 2022 &middot; 6 min read</div>
+                        <tr th:each="board: ${boardList}">
+                            <div class="col-lg-4 mb-5">
+                                <div class="card h-80 shadow border-0">
+                                    <div class="card-body p-5">
+                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">시작 예정일 : <span th:text="${board.sb_start_time}"></span></div>
+                                        <a class="text-decoration-none link-dark stretched-link" href="#!"><h4 class="card-title mb-3" th:text="${board.sb_title}">제목</h4></a>
+                                        <p class="card-text mb-0"><p th:maxlength="3" th:text="${board.sb_content}"></p>
+                                    </div>
+                                    <div class="card-footer p-5 pt-0 bg-transparent border-top-0">
+                                        <div class="d-flex align-items-end justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                <img class="rounded-circle me-3" src="images/icons/studyIcon.png" width="40" height="40" alt="..." />
+                                                <div class="small">
+                                                    <div class="fw-bold"><span th:text="${board.member_name}"></span></div>
+                                                    <div class="text-muted"><span th:text="${board.sb_register_datetime}"></span></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <div class="card-body p-5">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">시작 예정일 : </div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">제목</h5></a>
-                                    <p class="card-text mb-0">스프링 토이 프로젝트 인원 모집합니다</p>
-                                </div>
-                                <div class="card-footer p-5 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold">Josiah Barclay</div>
-                                                <div class="text-muted">March 23, 2022 &middot; 4 min read</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <div class="card-body p-5">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">시작 예정일 : </div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">제목</h5></a>
-                                    <p class="card-text mb-0">저녁 8시 이후에 같이 공부할 사람 구합니다.</p>
-                                </div>
-                                <div class="card-footer p-5 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold">Evelyn Martinez</div>
-                                                <div class="text-muted">April 2, 2022 &middot; 10 min read</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container px-5 my-5">
-                    <div class="row gx-5">
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <div class="card-body p-5">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">시작 예정일 : </div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">제목</h5></a>
-                                    <p class="card-text mb-0">자바스크립트 기초 스터디 모집합니다자바스크립트 기초 스터디 모집합니다자바스크립트 기초 스터디 모집합니다자바스크립트 기초 스터디 모집합니다</p>
-                                </div>
-                                <div class="card-footer p-5 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold">Kelly Rowan</div>
-                                                <div class="text-muted">March 12, 2022 &middot; 6 min read</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-80 shadow border-0">
-                                <div class="card-body p-5">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">시작 예정일 : </div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">제목</h5></a>
-                                    <p class="card-text mb-0">자바스크립트 기초 스터디 모집합니다자바스크립트 기초 스터디 모집합니다자바스크립트 기초 스터디 모집합니다자바스크립트 기초 스터디 모집합니다</p>
-                                </div>
-                                <div class="card-footer p-5 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold">Josiah Barclay</div>
-                                                <div class="text-muted">March 23, 2022 &middot; 4 min read</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-80 shadow border-0">
-                                <div class="card-body p-5">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">시작 예정일 : </div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">제목</h5></a>
-                                    <p class="card-text mb-0">자바스크립트 기초 스터디 모집합니다자바스크립트 기초 스터디 모집합니다자바스크립트 기초 스터디 모집합니다자바스크립트 기초 스터디 모집합니다</p>
-                                </div>
-                                <div class="card-footer p-5 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold">Evelyn Martinez</div>
-                                                <div class="text-muted">April 2, 2022 &middot; 10 min read</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </tr>
                     </div>
                 </div>
             </section>
