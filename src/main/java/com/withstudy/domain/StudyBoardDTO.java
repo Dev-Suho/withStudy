@@ -16,6 +16,7 @@ public class StudyBoardDTO {
     private String sb_deadLine;
     private String sb_contact;
     private Date sb_register_datetime;
+    private String sb_location;
 
     @Override
     public String toString() {
@@ -29,6 +30,7 @@ public class StudyBoardDTO {
                 ", sb_deadLine='" + sb_deadLine + '\'' +
                 ", sb_contact='" + sb_contact + '\'' +
                 ", sb_register_datetime=" + sb_register_datetime +
+                ", sb_location='" + sb_location + '\'' +
                 '}';
     }
 }

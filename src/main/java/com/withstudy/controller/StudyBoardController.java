@@ -26,7 +26,7 @@ public class StudyBoardController {
         System.out.println("Controller Board : " + studyBoardDTO.toString());
         studyBoardService.studyBoardReg(studyBoardDTO);
 
-        return "studyListPage";
+        return "redirect:studyList";
     }
 
     @GetMapping("/studyList")
