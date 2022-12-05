@@ -6,13 +6,26 @@
 <mapper namespace="com.withstudy.mapper.BoardMapper">
 
     <insert id = "studyBoardReg" parameterType="com.withstudy.domain.StudyBoardDTO" >
-        insert into STUDYBOARD
+        insert into STUDYBOARD(SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT)
         values (sb_num_seq.nextval, #{member_name, jdbcType = VARCHAR}, #{sb_title, jdbcType = VARCHAR}, #{sb_tag, jdbcType = VARCHAR},
-                #{sb_content, jdbcType = VARCHAR}, #{sb_start_time, jdbcType = VARCHAR}, #{sb_deadLine, jdbcType = VARCHAR}, #{sb_contact, jdbcType = VARCHAR}, sysdate, #{sb_location, jdbcType = VARCHAR})
+                #{sb_content, jdbcType = VARCHAR}, #{sb_start_time, jdbcType = VARCHAR}, #{sb_deadLine, jdbcType = VARCHAR}, #{sb_contact, jdbcType = VARCHAR}, sysdate, #{sb_location, jdbcType = VARCHAR}, 0)
     </insert>
 
     <select id="studyBoardList" resultType="com.withstudy.domain.StudyBoardDTO">
-        select * from STUDYBOARD
+        select SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT
+        from STUDYBOARD
+        order by SB_VIEWCOUNT DESC
     </select>
 
+    <select id="studyBoardOnline" resultType="com.withstudy.domain.StudyBoardDTO">
+        select SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT
+        from STUDYBOARD
+        where SB_LOCATION = '온라인'
+    </select>
+
+    <select id="studyBoardOffline" resultType="com.withstudy.domain.StudyBoardDTO">
+        select SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT
+        from STUDYBOARD
+        where SB_LOCATION = '오프라인'
+    </select>
 </mapper>

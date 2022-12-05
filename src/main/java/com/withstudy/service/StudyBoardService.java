@@ -8,4 +8,8 @@ public interface StudyBoardService {
     public void studyBoardReg(StudyBoardDTO studyBoardDTO) throws Exception;
 
     public List<StudyBoardDTO> studyBoardList() throws Exception;
+
+    public List<StudyBoardDTO> studyBoardListOnline() throws Exception;
+
+    public List<StudyBoardDTO> studyBoardListOffline() throws Exception;
 }

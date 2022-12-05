@@ -27,4 +27,14 @@ public class StudyBoardServiceImpl implements StudyBoardService{
     public List<StudyBoardDTO> studyBoardList() throws Exception {
         return studyBoardDAO.studyBoardList();
     }
+
+    @Override
+    public List<StudyBoardDTO> studyBoardListOnline() throws Exception {
+        return studyBoardDAO.studyBoardListOnline();
+    }
+
+    @Override
+    public List<StudyBoardDTO> studyBoardListOffline() throws Exception {
+        return studyBoardDAO.studyBoardListOffline();
+    }
 }

@@ -4,7 +4,6 @@ import com.withstudy.domain.StudyBoardDTO;
 import com.withstudy.service.StudyBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,11 +30,12 @@ public class StudyBoardController {
 
     @GetMapping("/studyList")
     public ModelAndView studyListView() throws Exception{
-        List<StudyBoardDTO> studyBoardDTOS = null;
-        studyBoardDTOS = studyBoardService.studyBoardList();
+        List<StudyBoardDTO> studyBoardListOnline = studyBoardService.studyBoardListOnline();
+        List<StudyBoardDTO> studyBoardListOffline = studyBoardService.studyBoardListOffline();
 
         ModelAndView mav = new ModelAndView("studyListPage");
-        mav.addObject("boardList", studyBoardDTOS);
+        mav.addObject("onlineStudy", studyBoardListOnline);
+        mav.addObject("offlineStudy", studyBoardListOffline);
 
         System.out.println("studyList : " + mav);
 

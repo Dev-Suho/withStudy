@@ -30,4 +30,14 @@ public class StudyBoardDAOImpl implements StudyBoardDAO{
 
         return sqlSession.selectList(NAMESPACE + "studyBoardList");
     }
+
+    @Override
+    public List<StudyBoardDTO> studyBoardListOnline() throws Exception {
+        return sqlSession.selectList(NAMESPACE + "studyBoardOnline");
+    }
+
+    @Override
+    public List<StudyBoardDTO> studyBoardListOffline() throws Exception {
+        return sqlSession.selectList(NAMESPACE + "studyBoardOffline");
+    }
 }
