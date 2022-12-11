@@ -40,4 +40,9 @@ public class StudyBoardDAOImpl implements StudyBoardDAO{
     public List<StudyBoardDTO> studyBoardListOffline() throws Exception {
         return sqlSession.selectList(NAMESPACE + "studyBoardOffline");
     }
+
+    @Override
+    public StudyBoardDTO studyBoardPost(int sb_num) throws Exception {
+        return sqlSession.selectOne(NAMESPACE + "getStudyPost", sb_num);
+    }
 }

@@ -39,8 +39,10 @@
                                 <h1 class="display-5 fw-bolder text-white mb-2">마음 맞는 팀원을 더 쉽게 만나세요!</h1>
                                 <p class="lead fw-normal text-white-50 mb-4">온 / 오프라인 스터디와 프로젝트 모임을 찾는 가장 쉬운 방법</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="/studyList">가입하기</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" href="/studyBoard">개설하기</a>
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" th:if="${session.member == null}" th:href="@{/login}">가입하기</a>
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" th:if="${session.member != null}" th:href="@{/studyList}">가입하기</a>
+                                    <a class="btn btn-outline-light btn-lg px-4" th:if="${session.member == null}" th:href="@{/login}">개설하기</a>
+                                    <a class="btn btn-outline-light btn-lg px-4" th:if="${session.member != null}" th:href="@{/studyBoard}">개설하기</a>
                                 </div>
                             </div>
                         </div>

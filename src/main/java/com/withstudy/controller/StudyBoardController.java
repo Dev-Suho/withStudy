@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -43,7 +44,12 @@ public class StudyBoardController {
     }
 
     @GetMapping("/studyPost")
-    public String studyPostView() throws Exception{
-        return "studyPostPage";
+    public ModelAndView studyPostView(@RequestParam("no") int sb_num) throws Exception{
+        StudyBoardDTO studyPost = studyBoardService.studyBoardPost(sb_num);
+
+        ModelAndView mav = new ModelAndView("studyPostPage");
+        mav.addObject("studyPost", studyPost);
+        System.out.println("studyPost : " + studyPost);
+        return mav;
     }
 }

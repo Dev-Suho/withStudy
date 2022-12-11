@@ -17,6 +17,7 @@ public class StudyBoardDTO {
     private Date sb_register_datetime;
     private String sb_location;
     private int sb_viewCount;
+    private int sb_memberLimit;
 
     public int getSb_num() {
         return sb_num;
@@ -106,6 +107,14 @@ public class StudyBoardDTO {
         this.sb_viewCount = sb_viewCount;
     }
 
+    public int getSb_memberLimit() {
+        return sb_memberLimit;
+    }
+
+    public void setSb_memberLimit(int sb_memberLimit) {
+        this.sb_memberLimit = sb_memberLimit;
+    }
+
     @Override
     public String toString() {
         return "StudyBoardDTO{" +
@@ -120,6 +129,7 @@ public class StudyBoardDTO {
                 ", sb_register_datetime=" + sb_register_datetime +
                 ", sb_location='" + sb_location + '\'' +
                 ", sb_viewCount=" + sb_viewCount +
+                ", sb_memberLimit=" + sb_memberLimit +
                 '}';
     }
 }

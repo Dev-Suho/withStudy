@@ -32,15 +32,15 @@
                 </div>
             </nav>
             <!-- Page Content-->
+            <tr th:each="studyPost : ${studyPost}">
             <section class="py-5">
                 <div class="container px-5 my-5">
                     <div class="row gx-5">
                         <div class="col-lg-3">
                             <div class="d-flex align-items-center mt-lg-5 mb-4">
-                                <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+                                <img class="img-fluid rounded-circle" src="images/icons/studyIcon.png" width="40" height="40" alt="..." />
                                 <div class="ms-3">
-                                    <div class="fw-bold">Valerie Luna</div>
-                                    <div class="text-muted">News, Business</div>
+                                    <div class="fw-bold"><span th:text = "${studyPost.member_name}"></span></div>
                                 </div>
                             </div>
                         </div>
@@ -50,12 +50,11 @@
                                 <!-- Post header-->
                                 <header class="mb-4">
                                     <!-- Post title-->
-                                    <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
+                                    <h1 class="fw-bolder mb-1" th:text = "${studyPost.sb_title}">Welcome to Blog Post!</h1>
                                     <!-- Post meta content-->
-                                    <div class="text-muted fst-italic mb-2">January 1, 2022</div>
+                                    <div class="text-muted fst-italic mb-2" th:text = "${studyPost.sb_register_datetime}">January 1, 2022</div>
                                     <!-- Post categories-->
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!" th:text = "${studyPost.sb_tag}">Web Design</a>
                                 </header>
                                 <!-- Post content-->
                                 <section class="mb-5">
@@ -66,33 +65,31 @@
                                         </li>
                                         <li class="studyInfo_contentWrapper">
                                             <span class="studyInfo_title">진행 방식</span>
-                                            <span class="studyInfo_content__eqtqC">온라인</span>
+                                            <span class="studyInfo_content__eqtqC"th:text = "${studyPost.sb_location}"></span>
                                         </li>
                                         <li class="studyInfo_contentWrapper">
                                             <span class="studyInfo_title">모집 인원</span>
-                                            <span class="studyInfo_content__eqtqC">1명</span>
+                                            <span class="studyInfo_content__eqtqC" th:text = "${studyPost.sb_memberLimit}"></span> 명
                                         </li>
                                         <li class="studyInfo_contentWrapper">
                                             <span class="studyInfo_title">시작 예정</span>
-                                            <span class="studyInfo_content__eqtqC">2022.12.12</span>
+                                            <span class="studyInfo_content__eqtqC" th:text = "${studyPost.sb_start_time}"></span>
                                         </li>
                                         <li class="studyInfo_contentWrapper">
                                             <span class="studyInfo_title">연락 방법</span>
                                             <div class="contactPoint_contactWrapper">
                                                 <a class="contactPoint_link" href="" target="_blank" rel="noreferrer">
-                                                    <span>카카오톡 오픈채팅</span>
+                                                    <span>오픈채팅</span>
                                                     <img class="contactPoint_linkImg" src="/images/info/link.svg" alt="">
                                                 </a>
                                             </div>
                                         </li>
                                         <li class="studyInfo_contentWrapper">
-                                            <span class="studyInfo_title">예상 기간</span>
-                                            <span class="studyInfo_content">1개월</span></li>
+                                            <span class="studyInfo_title">종료 날짜</span>
+                                            <span class="studyInfo_content" th:text = "${studyPost.sb_deadLine}"></span></li>
                                     </ul>
                                     <br/>
-                                    <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
-                                    <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                                    <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                                    <p class="fs-5 mb-4" th:text = "${studyPost.sb_content}"></p>
                                 </section>
                             </article>
                             <!-- Comments section-->
@@ -141,6 +138,7 @@
                     </div>
                 </div>
             </section>
+            </tr>
         </main>
         <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">

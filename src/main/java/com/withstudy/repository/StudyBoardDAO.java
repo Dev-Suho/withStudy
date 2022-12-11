@@ -14,4 +14,6 @@ public interface StudyBoardDAO {
     public List<StudyBoardDTO> studyBoardListOnline() throws Exception;
 
     public List<StudyBoardDTO> studyBoardListOffline() throws Exception;
+
+    public StudyBoardDTO studyBoardPost(int sb_num) throws Exception;
 }

@@ -37,4 +37,9 @@ public class StudyBoardServiceImpl implements StudyBoardService{
     public List<StudyBoardDTO> studyBoardListOffline() throws Exception {
         return studyBoardDAO.studyBoardListOffline();
     }
+
+    @Override
+    public StudyBoardDTO studyBoardPost(int sb_num) throws Exception {
+        return studyBoardDAO.studyBoardPost(sb_num);
+    }
 }

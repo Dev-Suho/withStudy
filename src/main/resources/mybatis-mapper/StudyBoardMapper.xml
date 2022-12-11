@@ -6,9 +6,9 @@
 <mapper namespace="com.withstudy.mapper.BoardMapper">
 
     <insert id = "studyBoardReg" parameterType="com.withstudy.domain.StudyBoardDTO" >
-        insert into STUDYBOARD(SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT)
+        insert into STUDYBOARD(SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT, SB_MEMBERLIMIT)
         values (sb_num_seq.nextval, #{member_name, jdbcType = VARCHAR}, #{sb_title, jdbcType = VARCHAR}, #{sb_tag, jdbcType = VARCHAR},
-                #{sb_content, jdbcType = VARCHAR}, #{sb_start_time, jdbcType = VARCHAR}, #{sb_deadLine, jdbcType = VARCHAR}, #{sb_contact, jdbcType = VARCHAR}, sysdate, #{sb_location, jdbcType = VARCHAR}, 0)
+                #{sb_content, jdbcType = VARCHAR}, #{sb_start_time, jdbcType = VARCHAR}, #{sb_deadLine, jdbcType = VARCHAR}, #{sb_contact, jdbcType = VARCHAR}, sysdate, #{sb_location, jdbcType = VARCHAR}, 0, #{sb_memberLimit, jdbcType = NUMERIC})
     </insert>
 
     <select id="studyBoardList" resultType="com.withstudy.domain.StudyBoardDTO">
@@ -27,5 +27,12 @@
         select SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT
         from STUDYBOARD
         where SB_LOCATION = '오프라인'
+    </select>
+
+    <!-- 스터디 포스트 정보 불러오기 -->
+    <select id="getStudyPost" resultType="com.withstudy.domain.StudyBoardDTO">
+        select SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT, SB_MEMBERLIMIT
+        FROM STUDYBOARD
+        WHERE SB_NUM = #{sb_num, jdbcType = NUMERIC}
     </select>
 </mapper>
