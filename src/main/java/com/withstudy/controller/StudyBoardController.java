@@ -41,4 +41,9 @@ public class StudyBoardController {
 
         return mav;
     }
+
+    @GetMapping("/studyPost")
+    public String studyPostView() throws Exception{
+        return "studyPostPage";
+    }
 }
