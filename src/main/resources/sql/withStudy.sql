@@ -22,3 +22,5 @@ create sequence sb_num_seq;
 
 alter table STUDYBOARD add sb_location varchar2(30);
 alter table STUDYBOARD add sb_viewCount number default 0;
+
+alter table STUDYBOARD add sb_memberLimit number default 0;

@@ -14,4 +14,6 @@ public interface StudyBoardService {
     public List<StudyBoardDTO> studyBoardListOffline() throws Exception;
 
     public StudyBoardDTO studyBoardPost(int sb_num) throws Exception;
+
+    public void viewCount(int sb_num) throws Exception;
 }

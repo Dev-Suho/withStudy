@@ -46,10 +46,11 @@ public class StudyBoardController {
     @GetMapping("/studyPost")
     public ModelAndView studyPostView(@RequestParam("no") int sb_num) throws Exception{
         StudyBoardDTO studyPost = studyBoardService.studyBoardPost(sb_num);
+        studyBoardService.viewCount(sb_num);
 
         ModelAndView mav = new ModelAndView("studyPostPage");
         mav.addObject("studyPost", studyPost);
-        System.out.println("studyPost : " + studyPost);
+
         return mav;
     }
 }

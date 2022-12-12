@@ -52,7 +52,10 @@
                                     <!-- Post title-->
                                     <h1 class="fw-bolder mb-1" th:text = "${studyPost.sb_title}">Welcome to Blog Post!</h1>
                                     <!-- Post meta content-->
-                                    <div class="text-muted fst-italic mb-2" th:text = "${studyPost.sb_register_datetime}">January 1, 2022</div>
+                                    <ul>
+                                        <li><div class="text-muted fst-italic mb-2" th:text = "${studyPost.sb_register_datetime}">January 1, 2022</div></li>
+                                        <li><div class="viewCount">조회수 <span th:text = "${studyPost.sb_viewCount}"></span></div></li>
+                                    </ul>
                                     <!-- Post categories-->
                                     <a class="badge bg-secondary text-decoration-none link-light" href="#!" th:text = "${studyPost.sb_tag}">Web Design</a>
                                 </header>

@@ -45,4 +45,9 @@ public class StudyBoardDAOImpl implements StudyBoardDAO{
     public StudyBoardDTO studyBoardPost(int sb_num) throws Exception {
         return sqlSession.selectOne(NAMESPACE + "getStudyPost", sb_num);
     }
+
+    @Override
+    public void viewCount(int sb_num) throws Exception {
+        sqlSession.update(NAMESPACE + "viewCount", sb_num);
+    }
 }

@@ -26,7 +26,6 @@
                             <li class="nav-item"><a class="nav-link" href="/community">커뮤니티</a></li>
                             <li th:if = "${session.member == null}" class="nav-item"><a class="nav-link" href="/login">로그인</a></li>
                             <li th:if = "${session.member != null}" class="nav-item" ><a class="nav-link"><span th:text="${session.member.member_name}"></span>님</a></li>
-
                         </ul>
                     </div>
                 </div>

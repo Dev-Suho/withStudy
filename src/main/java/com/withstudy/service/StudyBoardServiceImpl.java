@@ -42,4 +42,9 @@ public class StudyBoardServiceImpl implements StudyBoardService{
     public StudyBoardDTO studyBoardPost(int sb_num) throws Exception {
         return studyBoardDAO.studyBoardPost(sb_num);
     }
+
+    @Override
+    public void viewCount(int sb_num) throws Exception {
+        studyBoardDAO.viewCount(sb_num);
+    }
 }

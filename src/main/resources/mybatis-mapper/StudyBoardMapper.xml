@@ -35,4 +35,11 @@
         FROM STUDYBOARD
         WHERE SB_NUM = #{sb_num, jdbcType = NUMERIC}
     </select>
+
+    <!-- 조회수 -->
+    <update id="viewCount">
+        update STUDYBOARD
+        SET SB_VIEWCOUNT = SB_VIEWCOUNT + 1
+        where SB_NUM = #{sb_num, jdbcType = NUMERIC}
+    </update>
 </mapper>
