@@ -10,4 +10,7 @@ public interface MemberDAO {
     public void memberSignUp(MemberDTO memberDTO) throws Exception;
 
     public MemberDTO login(MemberDTO memberDTO) throws Exception;
+
+    // 회원정보 수정
+    public void memberModify(MemberDTO memberDTO) throws Exception;
 }

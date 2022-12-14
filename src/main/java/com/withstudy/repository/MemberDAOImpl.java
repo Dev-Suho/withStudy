@@ -29,4 +29,9 @@ public class MemberDAOImpl implements MemberDAO{
         System.out.println("dao : " + member);
         return member;
     }
+
+    @Override
+    public void memberModify(MemberDTO memberDTO) throws Exception {
+        sqlSession.update(NAMESPACE + "memberModify", memberDTO);
+    }
 }

@@ -7,4 +7,6 @@ public interface MemberService {
     public void memberSignUp(MemberDTO memberDTO) throws Exception;
 
     public MemberDTO login(MemberDTO memberDTO) throws Exception;
+
+    public void memberModify(MemberDTO memberDTO) throws Exception;
 }

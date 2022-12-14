@@ -28,4 +28,9 @@ public class MemberServiceImpl implements MemberService{
         System.out.println("login Service : " + memberDTO);
         return memberDAO.login(memberDTO);
     }
+
+    @Override
+    public void memberModify(MemberDTO memberDTO) throws Exception {
+        memberDAO.memberModify(memberDTO);
+    }
 }

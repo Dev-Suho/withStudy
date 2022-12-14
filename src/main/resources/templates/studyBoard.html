@@ -42,7 +42,13 @@
                     <li class="nav-item"><a class="nav-link" href="/studyList">스터디 모임</a></li>
                     <li class="nav-item"><a class="nav-link" href="/community">커뮤니티</a></li>
                     <li th:if = "${session.member == null}" class="nav-item"><a class="nav-link" href="/login">로그인</a></li>
-                    <li th:if = "${session.member != null}" class="nav-item" ><a class="nav-link"><span th:text="${session.member.member_name}"></span>님</a></li>
+                    <li th:if = "${session.member != null}" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span th:text="${session.member.member_name}"></span>님</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                            <li><a class="dropdown-item" th:href="@{/myPage}">회원 정보</a></li>
+                            <li><a class="dropdown-item" th:href="@{/myPost}">내 작성글</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
