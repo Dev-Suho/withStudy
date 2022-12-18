@@ -84,4 +84,11 @@ public class MemberController {
 
         return "myPage";
     }
+
+    @GetMapping(value = "/logout")
+    public String logout(HttpSession session) throws Exception {
+        session.invalidate();
+
+        return "redirect:withStudy";
+    }
 }

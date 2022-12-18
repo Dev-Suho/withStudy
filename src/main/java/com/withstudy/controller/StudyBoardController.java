@@ -53,4 +53,30 @@ public class StudyBoardController {
 
         return mav;
     }
+
+    @GetMapping("/studyModify")
+    public ModelAndView studyPostModifyView(@RequestParam("no") int sb_num) throws Exception{
+        StudyBoardDTO studyPost = studyBoardService.studyBoardPost(sb_num);
+        studyBoardService.viewCount(sb_num);
+
+        ModelAndView mav = new ModelAndView("studyPostModifyPage");
+        mav.addObject("studyPost", studyPost);
+
+        return mav;
+    }
+
+    @PostMapping("/modifyComplete")
+    public String modifyComplete(StudyBoardDTO studyBoardDTO) throws Exception{
+        System.out.println("modify : " + studyBoardDTO.toString());
+        studyBoardService.studyModify(studyBoardDTO);
+
+        return "redirect:studyList";
+    }
+
+    @GetMapping("/studyDelete")
+    public String deleteComplete(@RequestParam("no") int sb_num) throws Exception{
+        studyBoardService.studyDelete(sb_num);
+
+        return "redirect:studyList";
+    }
 }

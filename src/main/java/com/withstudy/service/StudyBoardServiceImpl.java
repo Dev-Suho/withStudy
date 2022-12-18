@@ -47,4 +47,14 @@ public class StudyBoardServiceImpl implements StudyBoardService{
     public void viewCount(int sb_num) throws Exception {
         studyBoardDAO.viewCount(sb_num);
     }
+
+    @Override
+    public void studyModify(StudyBoardDTO studyBoardDTO) throws Exception {
+        studyBoardDAO.studyModify(studyBoardDTO);
+    }
+
+    @Override
+    public void studyDelete(int sb_num) throws Exception {
+        studyBoardDAO.studyDelete(sb_num);
+    }
 }

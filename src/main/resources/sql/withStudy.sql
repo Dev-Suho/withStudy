@@ -24,3 +24,9 @@ alter table STUDYBOARD add sb_location varchar2(30);
 alter table STUDYBOARD add sb_viewCount number default 0;
 
 alter table STUDYBOARD add sb_memberLimit number default 0;
+
+alter table STUDYBOARD add sb_joinMember number default 0;
+
+alter table STUDYBOARD add member_email varchar2(100);
+
+alter table STUDYBOARD add foreign key (member_email) references MEMBER(MEMBER_EMAIL);

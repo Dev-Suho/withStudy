@@ -36,11 +36,6 @@ public class HomeController {
         return "loginPage";
     }
 
-    @GetMapping("/community")
-    public String communityView() {
-        return "communityPage";
-    }
-
     @GetMapping("/signUp")
     public String singUpView() {
         return "signUpPage";

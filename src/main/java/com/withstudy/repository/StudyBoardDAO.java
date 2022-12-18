@@ -16,6 +16,7 @@ public interface StudyBoardDAO {
     public List<StudyBoardDTO> studyBoardListOffline() throws Exception;
 
     public StudyBoardDTO studyBoardPost(int sb_num) throws Exception;
-
     public void viewCount(int sb_num) throws Exception;
+    public void studyModify(StudyBoardDTO studyBoardDTO) throws Exception;
+    public void studyDelete(int sb_num) throws Exception;
 }

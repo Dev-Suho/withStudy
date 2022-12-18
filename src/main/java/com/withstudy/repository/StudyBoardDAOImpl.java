@@ -50,4 +50,14 @@ public class StudyBoardDAOImpl implements StudyBoardDAO{
     public void viewCount(int sb_num) throws Exception {
         sqlSession.update(NAMESPACE + "viewCount", sb_num);
     }
+
+    @Override
+    public void studyModify(StudyBoardDTO studyBoardDTO) throws Exception {
+        sqlSession.update(NAMESPACE + "studyModify", studyBoardDTO);
+    }
+
+    @Override
+    public void studyDelete(int sb_num) throws Exception {
+        sqlSession.delete(NAMESPACE + "studyDelete", sb_num);
+    }
 }

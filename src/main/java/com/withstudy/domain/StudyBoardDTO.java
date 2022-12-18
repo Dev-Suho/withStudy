@@ -18,6 +18,8 @@ public class StudyBoardDTO {
     private String sb_location;
     private int sb_viewCount;
     private int sb_memberLimit;
+    private int sb_joinMember;
+    private String member_email;
 
     public int getSb_num() {
         return sb_num;
@@ -115,6 +117,22 @@ public class StudyBoardDTO {
         this.sb_memberLimit = sb_memberLimit;
     }
 
+    public int getSb_joinMember() {
+        return sb_joinMember;
+    }
+
+    public void setSb_joinMember(int sb_joinMember) {
+        this.sb_joinMember = sb_joinMember;
+    }
+
+    public String getMember_email() {
+        return member_email;
+    }
+
+    public void setMember_email(String member_email) {
+        this.member_email = member_email;
+    }
+
     @Override
     public String toString() {
         return "StudyBoardDTO{" +
@@ -130,6 +148,8 @@ public class StudyBoardDTO {
                 ", sb_location='" + sb_location + '\'' +
                 ", sb_viewCount=" + sb_viewCount +
                 ", sb_memberLimit=" + sb_memberLimit +
+                ", sb_joinMember=" + sb_joinMember +
+                ", member_email='" + member_email + '\'' +
                 '}';
     }
 }

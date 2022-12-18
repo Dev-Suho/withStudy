@@ -66,6 +66,8 @@
                                     <a class="badge bg-secondary text-decoration-none link-light" href="#!" th:text = "${studyPost.sb_tag}">Web Design</a>
                                 </header>
                                 <!-- Post content-->
+                                <form action="/modifyComplete" method="post">
+                                    <input type="hidden" name="sb_num" th:value="${studyPost.sb_num}">
                                 <section class="mb-5">
                                     <ul class="studyInfo_studyGrid">
                                         <li class="studyInfo_contentWrapper">
@@ -74,37 +76,38 @@
                                         </li>
                                         <li class="studyInfo_contentWrapper">
                                             <span class="studyInfo_title">진행 방식</span>
-                                            <span class="studyInfo_content"th:text = "${studyPost.sb_location}"></span>
+                                            <select class="studyInfo_content" id="sb_location" name="sb_location">
+                                                <option value="온라인">온라인</option>
+                                                <option value="오프라인">오프라인</option>
+                                            </select>
                                         </li>
                                         <li class="studyInfo_contentWrapper">
                                             <span class="studyInfo_title">모집 인원</span>
-                                            <span class="studyInfo_content" th:text = "${studyPost.sb_memberLimit}"></span> 명
+                                            <input type="text" class="studyInfo_content" th:value="${studyPost.sb_memberLimit}" name="sb_memberLimit"/>
                                         </li>
                                         <li class="studyInfo_contentWrapper">
                                             <span class="studyInfo_title">시작 예정</span>
-                                            <span class="studyInfo_content" th:text = "${studyPost.sb_start_time}"></span>
+                                            <input type="date" class="studyInfo_content" th:value="${studyPost.sb_start_time}" name="sb_start_time"/>
                                         </li>
 
                                         <li class="studyInfo_contentWrapper">
                                             <span class="studyInfo_title">가입 인원</span>
-                                            <span class="studyInfo_content" th:text = "${studyPost.sb_joinMember}"></span>/<span class="studyInfo_content" th:text = "${studyPost.sb_memberLimit}"></span> 명
+                                            <span class="studyInfo_content" th:text = "${studyPost.sb_joinMember}"></span> / <span class="studyInfo_content" th:text = "${studyPost.sb_memberLimit}"></span> 명
                                         </li>
                                         <li class="studyInfo_contentWrapper">
                                             <span class="studyInfo_title">종료 날짜</span>
-                                            <span class="studyInfo_content" th:text = "${studyPost.sb_deadLine}"></span>
+                                            <input type="date" class="studyInfo_content" th:value="${studyPost.sb_deadLine}" name="sb_deadLine"/>
                                         </li>
                                         <li class="studyInfo_contentWrapper">
                                             <span class="studyInfo_title">연락처</span>
-                                            <span class="studyInfo_content" th:text = "${studyPost.sb_contact}"></span>
+                                            <input type="text" class="studyInfo_content" th:value="${studyPost.sb_contact}" name="sb_contact"/>
                                         </li>
                                     </ul>
                                     <br/>
-                                    <p class="fs-5 mb-4" th:text = "${studyPost.sb_content}"></p>
-                                    <button th:if="${session.member.member_email == studyPost.member_email}" class="btn btn-dark" th:onclick="|location.href = '@{studyDelete(no=${studyPost.sb_num})}'|" style="float: right; margin: 15px; background-color: #bb2d3b;">삭제</button>
-                                    <button th:if="${session.member.member_email == studyPost.member_email}" class="btn btn-dark" th:onclick="|location.href = '@{studyModify(no=${studyPost.sb_num})}'|" style="float: right; margin: 15px; background-color: #86b7fe;">수정</button>
-                                    <button th:if="${studyPost.sb_memberLimit != studyPost.sb_joinMember && session.member.member_email != studyPost.member_email}" class="btn btn-dark" th:onclick="|location.href = '@{login}'|" style="float: right; margin: 15px;">가입</button><br/>
-                                    <button th:if="${studyPost.sb_memberLimit == studyPost.sb_joinMember && session.member.member_email != studyPost.member_email}" class="btn btn-dark" style="float: right; margin: 15px;">모집완료</button><br/>
+                                    <textarea cols="100" rows="5" id="sb_content" name="sb_content" th:text="${studyPost.sb_content}"></textarea><br/>
+                                    <button type="submit" th:if="${session.member.member_email == studyPost.member_email}" class="btn btn-dark"  style="float: right; margin: 15px; background-color: #86b7fe;">수정완료</button>
                                 </section>
+                                </form>
                             </article>
                         </div>
                     </div>

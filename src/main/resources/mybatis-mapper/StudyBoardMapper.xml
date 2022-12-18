@@ -6,9 +6,10 @@
 <mapper namespace="com.withstudy.mapper.BoardMapper">
 
     <insert id = "studyBoardReg" parameterType="com.withstudy.domain.StudyBoardDTO" >
-        insert into STUDYBOARD(SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT, SB_MEMBERLIMIT)
+        insert into STUDYBOARD(SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT, SB_MEMBERLIMIT, MEMBER_EMAIL)
         values (sb_num_seq.nextval, #{member_name, jdbcType = VARCHAR}, #{sb_title, jdbcType = VARCHAR}, #{sb_tag, jdbcType = VARCHAR},
-                #{sb_content, jdbcType = VARCHAR}, #{sb_start_time, jdbcType = VARCHAR}, #{sb_deadLine, jdbcType = VARCHAR}, #{sb_contact, jdbcType = VARCHAR}, sysdate, #{sb_location, jdbcType = VARCHAR}, 0, #{sb_memberLimit, jdbcType = NUMERIC})
+                #{sb_content, jdbcType = VARCHAR}, #{sb_start_time, jdbcType = VARCHAR}, #{sb_deadLine, jdbcType = VARCHAR}, #{sb_contact, jdbcType = VARCHAR}, sysdate, #{sb_location, jdbcType = VARCHAR}, 0,
+                #{sb_memberLimit, jdbcType = NUMERIC}, #{member_email, jdbcType = VARCHAR})
     </insert>
 
     <select id="studyBoardList" resultType="com.withstudy.domain.StudyBoardDTO">
@@ -31,7 +32,7 @@
 
     <!-- 스터디 포스트 정보 불러오기 -->
     <select id="getStudyPost" resultType="com.withstudy.domain.StudyBoardDTO">
-        select SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT, SB_MEMBERLIMIT
+        select SB_NUM, MEMBER_NAME, SB_TITLE, SB_TAG, SB_CONTENT, SB_START_TIME, SB_DEADLINE, SB_CONTACT, SB_REGISTER_DATETIME, SB_LOCATION, SB_VIEWCOUNT, SB_MEMBERLIMIT, SB_JOINMEMBER, MEMBER_EMAIL
         FROM STUDYBOARD
         WHERE SB_NUM = #{sb_num, jdbcType = NUMERIC}
     </select>
@@ -42,4 +43,17 @@
         SET SB_VIEWCOUNT = SB_VIEWCOUNT + 1
         where SB_NUM = #{sb_num, jdbcType = NUMERIC}
     </update>
+
+    <update id="studyModify">
+        update STUDYBOARD
+        set SB_LOCATION = #{sb_location, jdbcType = VARCHAR}, SB_MEMBERLIMIT = #{sb_memberLimit, jdbcType = NUMERIC},
+            SB_START_TIME = #{sb_start_time, jdbcType = VARCHAR}, SB_DEADLINE = #{sb_deadLine, jdbcType = VARCHAR},
+            SB_CONTENT = #{sb_content, jdbcType = VARCHAR}, SB_CONTACT = #{sb_contact, jdbcType = VARCHAR}
+        where SB_NUM = #{sb_num, jdbcType = NUMERIC}
+    </update>
+
+    <delete id="studyDelete">
+        delete from STUDYBOARD
+        where SB_NUM = #{sb_num, jdbcType = NUMERIC}
+    </delete>
 </mapper>
