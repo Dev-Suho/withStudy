@@ -102,8 +102,19 @@
                                     <p class="fs-5 mb-4" th:text = "${studyPost.sb_content}"></p>
                                     <button th:if="${session.member.member_email == studyPost.member_email}" class="btn btn-dark" th:onclick="|location.href = '@{studyDelete(no=${studyPost.sb_num})}'|" style="float: right; margin: 15px; background-color: #bb2d3b;">삭제</button>
                                     <button th:if="${session.member.member_email == studyPost.member_email}" class="btn btn-dark" th:onclick="|location.href = '@{studyModify(no=${studyPost.sb_num})}'|" style="float: right; margin: 15px; background-color: #86b7fe;">수정</button>
-                                    <button th:if="${studyPost.sb_memberLimit != studyPost.sb_joinMember && session.member.member_email != studyPost.member_email}" class="btn btn-dark" th:onclick="|location.href = '@{login}'|" style="float: right; margin: 15px;">가입</button><br/>
-                                    <button th:if="${studyPost.sb_memberLimit == studyPost.sb_joinMember && session.member.member_email != studyPost.member_email}" class="btn btn-dark" style="float: right; margin: 15px;">모집완료</button><br/>
+                                    <form action="/joinStudy" method="post">
+                                        <input type="hidden" name="member_email" th:value="${session.member.member_email}"/>
+                                        <input type="hidden" name="sb_num" th:value="${studyPost.sb_num}"/>
+                                        <input type="hidden" name="host_name" th:value="${studyPost.member_name}"/>
+                                        <input type="hidden" name="sb_title" th:value="${studyPost.sb_title}"/>
+                                        <input type="hidden" name="sb_location" th:value="${studyPost.sb_location}"/>
+                                        <input type="hidden" name="sb_tag" th:value="${studyPost.sb_tag}"/>
+                                        <input type="hidden" name="sb_contact" th:value="${studyPost.sb_contact}"/>
+                                        <input type="hidden" name="sb_start_time" th:value="${studyPost.sb_start_time}"/>
+                                        <input type="hidden" name="sb_deadLine" th:value="${studyPost.sb_deadLine}"/>
+                                        <button th:if="${studyPost.sb_memberLimit != studyPost.sb_joinMember && session.member.member_email != studyPost.member_email}" class="btn btn-dark" style="float: right; margin: 15px;">가입</button><br/>
+                                    </form>
+                                    <button type="button" th:if="${studyPost.sb_memberLimit == studyPost.sb_joinMember && session.member.member_email != studyPost.member_email}" class="btn btn-dark" style="float: right; margin: 15px;">모집완료</button><br/>
                                 </section>
                             </article>
                         </div>

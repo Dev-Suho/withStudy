@@ -30,3 +30,16 @@ alter table STUDYBOARD add sb_joinMember number default 0;
 alter table STUDYBOARD add member_email varchar2(100);
 
 alter table STUDYBOARD add foreign key (member_email) references MEMBER(MEMBER_EMAIL);
+
+create table joinStudy(
+                          member_email varchar2(100) primary key ,
+                          sb_num number,
+                          host_name varchar2(30),
+                          sb_title varchar2(100),
+                          sb_location varchar2(30),
+                          sb_tag varchar2(100),
+                          sb_contact varchar2(100),
+                          sb_start_time varchar2(100),
+                          sb_deadLine varchar2(100),
+                          register_datetime date default sysdate
+)

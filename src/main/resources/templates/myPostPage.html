@@ -45,8 +45,81 @@
                             <div class="text-center">
                                 <h2 class="fw-bolder">가입한 스터디</h2>
                                 <p class="lead fw-normal text-muted mb-5"></p>
+                                <tr th:each="joinStudy : ${joinStudy}">
+                                <ul class="studyInfo_studyGrid">
+                                    <li class="studyInfo_contentWrapper">
+                                        </th><span class="studyInfo_title">주제</span>
+                                        <span class="studyInfo_content" th:text="${joinStudy.sb_title}"></span>
+                                    </li>
+                                    <li class="studyInfo_contentWrapper">
+                                        <span class="studyInfo_title">스터디 주인</span>
+                                        <span class="studyInfo_content" th:text="${joinStudy.host_name}"></span>
+                                    </li>
+                                    <li class="studyInfo_contentWrapper">
+                                        <span class="studyInfo_title">스터디 위치</span>
+                                        <span class="studyInfo_content" th:text="${joinStudy.sb_location}"></span>
+                                    </li>
+                                    <li class="studyInfo_contentWrapper">
+                                        <span class="studyInfo_title">태그</span>
+                                        <span class="studyInfo_content" th:text="${joinStudy.sb_tag}"></span>
+                                    </li>
+                                    <li class="studyInfo_contentWrapper">
+                                        <span class="studyInfo_title">연락처</span>
+                                        <span class="studyInfo_content" th:text="${joinStudy.sb_contact}"></span>
+                                    </li>
+                                    <li class="studyInfo_contentWrapper">
+                                        <span class="studyInfo_title">시작일</span>
+                                        <span class="studyInfo_content" th:text="${joinStudy.sb_start_time}"></span>
+                                    </li>
+                                    <li class="studyInfo_contentWrapper">
+                                        <span class="studyInfo_title">종료일</span>
+                                        <span class="studyInfo_content" th:text="${joinStudy.sb_deadLine}"></span>
+                                    </li>
+                                    <li class="studyInfo_contentWrapper">
+                                        <span class="studyInfo_title">가입일</span>
+                                        <span class="studyInfo_content" th:text="${#dates.format(joinStudy.register_datetime, 'yyyy-MM-dd')}"></span>
+                                    </li>
+                                </ul>
+                                </tr>
+                                <br/><br/><br/>
                                 <h2 class="fw-bolder">개설한 스터디</h2>
                                 <p class="lead fw-normal text-muted mb-5"></p>
+                                <tr th:each="createStudy : ${createStudy}">
+                                    <ul class="studyInfo_studyGrid">
+                                        <li class="studyInfo_contentWrapper">
+                                            </th><span class="studyInfo_title">주제</span>
+                                            <span class="studyInfo_content" th:text="${createStudy.sb_title}"></span>
+                                        </li>
+                                        <li class="studyInfo_contentWrapper">
+                                            <span class="studyInfo_title">스터디 주인</span>
+                                            <span class="studyInfo_content" th:text="${createStudy.member_name}"></span>
+                                        </li>
+                                        <li class="studyInfo_contentWrapper">
+                                            <span class="studyInfo_title">스터디 위치</span>
+                                            <span class="studyInfo_content" th:text="${createStudy.sb_location}"></span>
+                                        </li>
+                                        <li class="studyInfo_contentWrapper">
+                                            <span class="studyInfo_title">태그</span>
+                                            <span class="studyInfo_content" th:text="${createStudy.sb_tag}"></span>
+                                        </li>
+                                        <li class="studyInfo_contentWrapper">
+                                            <span class="studyInfo_title">연락처</span>
+                                            <span class="studyInfo_content" th:text="${createStudy.sb_contact}"></span>
+                                        </li>
+                                        <li class="studyInfo_contentWrapper">
+                                            <span class="studyInfo_title">시작일</span>
+                                            <span class="studyInfo_content" th:text="${createStudy.sb_start_time}"></span>
+                                        </li>
+                                        <li class="studyInfo_contentWrapper">
+                                            <span class="studyInfo_title">종료일</span>
+                                            <span class="studyInfo_content" th:text="${createStudy.sb_deadLine}"></span>
+                                        </li>
+                                        <li class="studyInfo_contentWrapper">
+                                            <span class="studyInfo_title">개설일</span>
+                                            <span class="studyInfo_content" th:text="${#dates.format(createStudy.sb_register_datetime, 'yyyy-MM-dd')}"></span>
+                                        </li>
+                                    </ul>
+                                </tr>
                             </div>
                         </div>
                     </div>

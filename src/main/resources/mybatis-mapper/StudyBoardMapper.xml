@@ -56,4 +56,21 @@
         delete from STUDYBOARD
         where SB_NUM = #{sb_num, jdbcType = NUMERIC}
     </delete>
+
+    <insert id="joinStudy" parameterType="com.withstudy.domain.StudyBoardDTO">
+        insert into JOINSTUDY
+        values (#{member_email, jdbcType = VARCHAR}, #{sb_num, jdbcType = NUMERIC}, #{host_name, jdbcType = VARCHAR},
+                #{sb_title, jdbcType = VARCHAR}, #{sb_location, jdbcType = VARCHAR}, #{sb_tag, jdbcType = VARCHAR},
+                #{sb_contact, jdbcType = VARCHAR}, #{sb_start_time, jdbcType = VARCHAR}, #{sb_deadLine, jdbcType = VARCHAR}, sysdate)
+    </insert>
+
+    <select id="viewJoinStudy" resultType="com.withstudy.domain.StudyBoardDTO">
+        select * from JOINSTUDY
+        where MEMBER_EMAIL = #{member_email, jdbcType = VARCHAR}
+    </select>
+
+    <select id="viewCreateStudy" resultType="com.withstudy.domain.StudyBoardDTO">
+        select * from STUDYBOARD
+        where MEMBER_EMAIL = #{member_email, jdbcType = VARCHAR}
+    </select>
 </mapper>

@@ -1,25 +1,31 @@
 package com.withstudy.controller;
 
 import com.withstudy.domain.MemberDTO;
+import com.withstudy.domain.StudyBoardDTO;
 import com.withstudy.service.MemberService;
+import com.withstudy.service.StudyBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class MemberController {
 
     private final MemberService memberService;
+    private final StudyBoardService studyBoardService;
 
     @Autowired
-    public MemberController(MemberService memberService) {
+    public MemberController(MemberService memberService, StudyBoardService studyBoardService) {
         this.memberService = memberService;
+        this.studyBoardService = studyBoardService;
     }
 
     @PostMapping(value = "/memberJoin")
@@ -57,8 +63,22 @@ public class MemberController {
     }
 
     @GetMapping(value = "/myPost")
-    public String myPostPageView() throws Exception {
-        return "myPostPage";
+    public ModelAndView myPostPageView(HttpSession session, HttpServletRequest request) throws Exception {
+        MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+        String member_email = memberDTO.getMember_email();
+
+        System.out.println("email" + member_email);
+
+        List<StudyBoardDTO> joinStudy = studyBoardService.viewJoinStudy(member_email);
+        List<StudyBoardDTO> createStudy = studyBoardService.viewCreateStudy(member_email);
+
+        ModelAndView mav = new ModelAndView("myPostPage");
+
+        mav.addObject("joinStudy", joinStudy);
+        mav.addObject("createStudy" , createStudy);
+
+        System.out.println("myPost : " + mav);
+        return mav;
     }
 
     @GetMapping(value = "/myModify")

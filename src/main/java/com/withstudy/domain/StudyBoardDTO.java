@@ -21,6 +21,9 @@ public class StudyBoardDTO {
     private int sb_joinMember;
     private String member_email;
 
+    // joinStudy
+    private String host_name;
+    private Date register_datetime;
     public int getSb_num() {
         return sb_num;
     }
@@ -131,6 +134,22 @@ public class StudyBoardDTO {
 
     public void setMember_email(String member_email) {
         this.member_email = member_email;
+    }
+
+    public String getHost_name() {
+        return host_name;
+    }
+
+    public void setHost_name(String host_name) {
+        this.host_name = host_name;
+    }
+
+    public Date getRegister_datetime() {
+        return register_datetime;
+    }
+
+    public void setRegister_datetime(Date register_datetime) {
+        this.register_datetime = register_datetime;
     }
 
     @Override

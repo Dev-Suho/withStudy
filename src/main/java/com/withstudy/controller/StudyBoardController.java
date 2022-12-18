@@ -79,4 +79,11 @@ public class StudyBoardController {
 
         return "redirect:studyList";
     }
+
+    @PostMapping("/joinStudy")
+    public String joinStudy(StudyBoardDTO studyBoardDTO) throws Exception{
+        studyBoardService.joinStudy(studyBoardDTO);
+
+        return "redirect:myPost";
+    }
 }

@@ -57,4 +57,19 @@ public class StudyBoardServiceImpl implements StudyBoardService{
     public void studyDelete(int sb_num) throws Exception {
         studyBoardDAO.studyDelete(sb_num);
     }
+
+    @Override
+    public void joinStudy(StudyBoardDTO studyBoardDTO) throws Exception {
+        studyBoardDAO.joinStudy(studyBoardDTO);
+    }
+
+    @Override
+    public List<StudyBoardDTO> viewJoinStudy(String member_email) throws Exception {
+        return studyBoardDAO.viewJoinStudy(member_email);
+    }
+
+    @Override
+    public List<StudyBoardDTO> viewCreateStudy(String member_email) throws Exception {
+        return studyBoardDAO.viewCreateStudy(member_email);
+    }
 }

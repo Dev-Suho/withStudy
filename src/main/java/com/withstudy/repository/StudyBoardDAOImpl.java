@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.print.attribute.standard.MediaSize;
 import java.util.List;
 
 @Repository
@@ -59,5 +60,20 @@ public class StudyBoardDAOImpl implements StudyBoardDAO{
     @Override
     public void studyDelete(int sb_num) throws Exception {
         sqlSession.delete(NAMESPACE + "studyDelete", sb_num);
+    }
+
+    @Override
+    public void joinStudy(StudyBoardDTO studyBoardDTO) throws Exception {
+        sqlSession.insert(NAMESPACE + "joinStudy", studyBoardDTO);
+    }
+
+    @Override
+    public List<StudyBoardDTO> viewJoinStudy(String member_email) throws Exception {
+        return sqlSession.selectList(NAMESPACE + "viewJoinStudy", member_email);
+    }
+
+    @Override
+    public List<StudyBoardDTO> viewCreateStudy(String member_email) throws Exception {
+        return sqlSession.selectList(NAMESPACE + "viewCreateStudy", member_email);
     }
 }
